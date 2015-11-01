@@ -25,7 +25,6 @@ import com.pulse.cloudnotify2.data.ApplicationConstants;
 public class GCMNotificationIntentService  extends IntentService{
     //Sets an ID for the notification so it can be updated.
     public static  final int notifyID = 9001;
-    NotificationCompat.Builder builder;
 
     public GCMNotificationIntentService(){
         super("GcmIntentService");
@@ -44,7 +43,7 @@ public class GCMNotificationIntentService  extends IntentService{
             } else if(GoogleCloudMessaging.MESSAGE_TYPE_DELETED.equals(messageType)) {
                 sendNotification("Deleted messages on server: " + extras.toString());
             } else if (GoogleCloudMessaging.MESSAGE_TYPE_MESSAGE.equals(messageType));
-                sendNotification("Message Received from Google GCM Server:nn" + extras.get(ApplicationConstants.MSG_KEY));
+                sendNotification("GCM Server Message: \n" + extras.get(ApplicationConstants.MSG_KEY));
         }
 
         GcmBroadcastReceiver.completeWakefulIntent(intent);
@@ -60,8 +59,8 @@ public class GCMNotificationIntentService  extends IntentService{
 
         manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         mNotifyBuilder = new NotificationCompat.Builder (this)
-                 .setContentTitle("Alert")
-                 .setContentText("You've Received a new message")
+                 .setContentTitle("CloudNotify")
+                 .setContentText("A Notification Is Here")
                  .setSmallIcon(R.drawable.ic_launcher);
 
         //set pending intent.

@@ -17,15 +17,20 @@
 
     <ImageView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+        android:layout_height="250dp"
         android:src="@drawable/google_cloud_messaging"
-        android:id="@+id/gcm_logo" />
+        android:id="@+id/gcm_logo"
+        android:layout_alignRight="@+id/header_text"
+        android:layout_alignEnd="@+id/header_text" />
 
     <EditText
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:hint="@string/email"
         android:id="@+id/email_entry"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
         android:layout_below="@+id/gcm_logo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -33,7 +38,8 @@
     <Button
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="Register me"
+        android:text="Register Me"
+        android:background="#00BCD4"
         android:elevation="10dp"
         android:onClick="RegisterUser"
         android:textAllCaps="false"

@@ -20,8 +20,6 @@ public class MessagesActivity extends AppCompatActivity {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    Button mainActivity;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,13 +27,11 @@ public class MessagesActivity extends AppCompatActivity {
 
         //Intent Message sent from broadcast Receiver.
 
-        startActivity(new Intent(this, MainActivity.class));
-
-        String str = getIntent().getStringExtra("msg");
+        String str = getIntent().getStringExtra("message");
 
         //Get Email ID from Shared Preferences
         SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
-        String emailID = prefs.getString("emailID", "");
+        String emailID = prefs.getString("eMailId", "");
         //set title
         usertitleEditText = (TextView) findViewById(R.id.user_id);
 
@@ -46,14 +42,14 @@ public class MessagesActivity extends AppCompatActivity {
         }
 
         usertitleEditText.setText("Hello, " + emailID + " !"); //TODO - remove concatenation in editText
-        //When message sent from Broadcast Reciever is not empty.
+
+        //When message sent from Broadcast Receiver is not empty.
         if (str != null) {
             //set the message
             msgEditText = (TextView) findViewById(R.id.msgview);
             msgEditText.setText(str);
         }
     }
-
         //Check if Google Play Services is installed on Device or not
 
     private boolean checkPlayServices(){
@@ -65,22 +61,19 @@ public class MessagesActivity extends AppCompatActivity {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
             }
             else {
-                Toast.makeText(getApplicationContext(), "This device doesn't support ply services, app will not work normally", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "This device doesn't support play services, app will not work normally", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }  else {
-            Toast.makeText(getApplicationContext(), "This device supports play, App will work normally", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "This device supports play, App will work normally", Toast.LENGTH_SHORT).show();
         }
-
             return  true;
         }
-
     //when application is resumed, check for play services
 
-
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
         checkPlayServices();
     }
 }

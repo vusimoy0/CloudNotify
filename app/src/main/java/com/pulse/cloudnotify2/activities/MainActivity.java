@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_messages);
+        setContentView(R.layout.activity_main);
 
         appContext = getApplicationContext();
         emailaddrEditText = (EditText) findViewById(R.id.email_entry);
@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences.Editor editor = prefs.edit();
         editor.putString(REG_ID, regId);
         editor.putString(EMAIL_ID, emailID);
-        editor.commit();
+        editor.apply();
         storeRegIdinServer();
     }
 
@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                 progressDialog.hide();
-                ;
+
                 if (progressDialog != null) {
                     progressDialog.dismiss();
                 }
@@ -156,7 +156,6 @@ public class MainActivity extends AppCompatActivity {
                 i.putExtra("regId", regId);
                 startActivity(i);
                 finish();
-
             }
 
             //when the response returned by REST has anything other than 200OK
@@ -178,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
                 else {
                     Toast.makeText(appContext, "Unexpected error has occurred..Check your connection", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
     }
@@ -199,15 +197,12 @@ public class MainActivity extends AppCompatActivity {
         }  else {
             Toast.makeText(appContext, "This device supports play, App will work normally", Toast.LENGTH_LONG).show();
         }
-
         return  true;
     }
-
     //When app is resumed, check for pay services support to mke sure app will be running normally
-
     @Override
-    protected void onPostResume() {
-        super.onPostResume();
+    protected void onResume() {
+        super.onResume();
         checkPlayServices();
     }
 }

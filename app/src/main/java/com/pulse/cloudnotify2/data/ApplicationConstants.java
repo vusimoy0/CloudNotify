@@ -8,13 +8,13 @@ public interface ApplicationConstants {
 
     //SERVER URL to store registration ID - in this case it will be the php URL
 
-    static final String GCM_SERVER_URL= "http://10.1.41.69/gcm/gcm.php?shareRegId=true";
+    String GCM_SERVER_URL= "http://192.168.1.130:9005/gcm/gcm.php?shareRegId=true";
 
     //Google Project ID number
 
-    static final String GOOGLE_PROJ_ID = "332168290405";
+    String GOOGLE_PROJ_ID = "332168290405";
 
-    static final String MSG_KEY = "m";
+    String MSG_KEY = "m";
 
 
 }

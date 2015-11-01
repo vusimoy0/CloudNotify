@@ -17,22 +17,24 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
+        android:fullBackupContent="true"
         android:theme="@style/AppTheme" >
 
         <receiver
             android:name="com.google.android.gms.gcm.GcmReceiver"
             android:exported="true"
-            android:permission="com.google.android.cc2dm.permission.SEND" >
+            android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECIEVE" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
                 <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-                <category android:name="com.pulse.cloudnotify"/>
+                <category android:name="com.pulse.cloudnotify2"/>
             </intent-filter>
         </receiver>
-        <service android:name="com.pulse.cloudnotify2.gcm.GCMNotificationIntentService"
+        <service
+            android:name="com.pulse.cloudnotify2.gcm.GCMNotificationIntentService"
             android:exported="false">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECIEVE"/>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE"/>
             </intent-filter>
         </service>
              <activity android:name=".activities.MainActivity" >
@@ -41,7 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".activities.MessagesActivity"/>
     </application>
 
 </manifest>
