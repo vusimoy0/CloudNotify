@@ -36,8 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
-    AsyncTask<Void, Void, String> createRegIdTask ; // spawn a thread for registration;
-
     public static final String REG_ID = "regId";
     public static final String EMAIL_ID = "eMailId";
     EditText emailaddrEditText;
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_messages);
 
         appContext = getApplicationContext();
         emailaddrEditText = (EditText) findViewById(R.id.email_entry);
@@ -54,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = new ProgressDialog(this);
         //Set Progress Dialog Text
         progressDialog.setMessage("Registering...");
-        //Set Canceable = false;
+        //Set Cancelable = false;
         progressDialog.setCancelable(false);
 
         SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
@@ -63,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         //when email ID is set in sharedPref, user will be taken to the Home Screen
 
         if(!TextUtils.isEmpty(registrationId)) {
-            Intent intent = new Intent(appContext, HomeActivity.class);
+            Intent intent = new Intent(appContext, MessagesActivity.class);
             intent.putExtra("regId", registrationId);
             startActivity(intent);
             finish();
@@ -154,7 +152,7 @@ public class MainActivity extends AppCompatActivity {
                     progressDialog.dismiss();
                 }
                 Toast.makeText(appContext, "RegID shared successfully with Web App", Toast.LENGTH_LONG).show();
-                Intent i = new Intent(appContext, HomeActivity.class);
+                Intent i = new Intent(appContext, MessagesActivity.class);
                 i.putExtra("regId", regId);
                 startActivity(i);
                 finish();

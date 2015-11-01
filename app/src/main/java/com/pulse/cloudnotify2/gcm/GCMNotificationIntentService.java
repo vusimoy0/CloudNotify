@@ -11,7 +11,7 @@ import android.app.NotificationManager;
 
 import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.pulse.cloudnotify2.R;
-import com.pulse.cloudnotify2.activities.HomeActivity;
+import com.pulse.cloudnotify2.activities.MessagesActivity;
 import com.pulse.cloudnotify2.data.ApplicationConstants;
 
 /**
@@ -51,7 +51,7 @@ public class GCMNotificationIntentService  extends IntentService{
     }
 
     private void sendNotification(String msg){
-        Intent resultIntent = new Intent(this, HomeActivity.class);
+        Intent resultIntent = new Intent(this, MessagesActivity.class);
         resultIntent.putExtra("message", msg);
         PendingIntent resultPendingIntent = PendingIntent.getActivity(this, 0, resultIntent, PendingIntent.FLAG_ONE_SHOT);
 
