@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
         //Set Cancelable = false;
         progressDialog.setCancelable(false);
 
+        InitialUserCheck();
+
         SharedPreferences prefs = getSharedPreferences("UserDetails", Context.MODE_PRIVATE);
         String registrationId = prefs.getString(REG_ID, "");
 
@@ -66,6 +68,21 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    //first run to check if device supports play services/else the app wont get pas here
+
+    private boolean InitialUserCheck(){
+
+        boolean isFirstRun = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE)
+                .getBoolean("isFirstRun", true);
+
+        if(isFirstRun){
+           if(!checkPlayServices()){
+               return true;
+           }
+        }
+        return  false;
     }
 
     //When RegisterMe button is clicked.
@@ -191,18 +208,13 @@ public class MainActivity extends AppCompatActivity {
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
             }
             else {
-                Toast.makeText(appContext, "This device doesn't support ply services, app will not work normally", Toast.LENGTH_LONG).show();
-                finish();
-            }
+                Toast.makeText(appContext, "This device doesn't support play services, app will not work normally", Toast.LENGTH_LONG).show();
+                return false;
+                }
         }  else {
             Toast.makeText(appContext, "This device supports play, App will work normally", Toast.LENGTH_LONG).show();
         }
         return  true;
     }
-    //When app is resumed, check for pay services support to mke sure app will be running normally
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkPlayServices();
-    }
+
 }

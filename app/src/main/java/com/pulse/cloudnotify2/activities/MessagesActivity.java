@@ -18,7 +18,6 @@ public class MessagesActivity extends AppCompatActivity {
 
     TextView msgEditText, usertitleEditText;
 
-    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,12 +34,6 @@ public class MessagesActivity extends AppCompatActivity {
         //set title
         usertitleEditText = (TextView) findViewById(R.id.user_id);
 
-        //check if play services is installed..
-
-        if (checkPlayServices()) {
-            Toast.makeText(getApplicationContext(), "This device does not support Google PLay Services", Toast.LENGTH_LONG).show();
-        }
-
         usertitleEditText.setText("Hello, " + emailID + " !"); //TODO - remove concatenation in editText
 
         //When message sent from Broadcast Receiver is not empty.
@@ -49,31 +42,5 @@ public class MessagesActivity extends AppCompatActivity {
             msgEditText = (TextView) findViewById(R.id.msgview);
             msgEditText.setText(str);
         }
-    }
-        //Check if Google Play Services is installed on Device or not
-
-    private boolean checkPlayServices(){
-        int resultCode = GooglePlayServicesUtil.isGooglePlayServicesAvailable(this);
-
-        if(resultCode != ConnectionResult.SUCCESS){
-            if(GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
-                //show error dialog to install play services
-                GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
-            }
-            else {
-                Toast.makeText(getApplicationContext(), "This device doesn't support play services, app will not work normally", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        }  else {
-            Toast.makeText(getApplicationContext(), "This device supports play, App will work normally", Toast.LENGTH_SHORT).show();
-        }
-            return  true;
-        }
-    //when application is resumed, check for play services
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        checkPlayServices();
     }
 }
