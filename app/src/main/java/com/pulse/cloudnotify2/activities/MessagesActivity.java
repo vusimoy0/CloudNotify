@@ -2,16 +2,10 @@ package com.pulse.cloudnotify2.activities;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesUtil;
 import com.pulse.cloudnotify2.R;
 
 public class MessagesActivity extends AppCompatActivity {

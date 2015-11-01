@@ -89,20 +89,18 @@ public class MainActivity extends AppCompatActivity {
 
     public  void RegisterUser(View view){
 
+        InitialUserCheck();
         String userEmailAddr = emailaddrEditText.getText().toString();
 
         if((!TextUtils.isEmpty(userEmailAddr)) && (Utility.vaidateEmail(userEmailAddr))){
 
             //Check if Google Play Service is installed in Device
             //Play service is needed to handle GCM stuffs.
-
             if(checkPlayServices()){
-
                 registerInBackground(userEmailAddr);
             }
         }
-
-        //When email is invalid
+           //When email is invalid
         else {
             Toast.makeText(appContext, "Please enter a valid email address... ", Toast.LENGTH_LONG).show();
         }
@@ -206,6 +204,7 @@ public class MainActivity extends AppCompatActivity {
             if(GooglePlayServicesUtil.isUserRecoverableError(resultCode)) {
                 //show error dialog to install play services
                 GooglePlayServicesUtil.getErrorDialog(resultCode, this, PLAY_SERVICES_RESOLUTION_REQUEST).show();
+
             }
             else {
                 Toast.makeText(appContext, "This device doesn't support play services, app will not work normally", Toast.LENGTH_LONG).show();
