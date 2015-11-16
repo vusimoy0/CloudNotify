@@ -34,12 +34,11 @@ public class MainActivity extends AppCompatActivity {
     Context appContext;
     String regId="";
 
-    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private final static int PLAY_SERVICES_RESOLUTION_REQUEST = 7000;
 
     public static final String REG_ID = "regId";
     public static final String EMAIL_ID = "eMailId";
     EditText emailaddrEditText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    //first run to check if device supports play services/else the app wont get pas here
+    //first run to check if device supports play services/else the app wont get past here
 
     private boolean InitialUserCheck(){
 
@@ -115,7 +114,7 @@ public class MainActivity extends AppCompatActivity {
 
                 String msg = "";
                 try {
-                    if(gcm == null){
+                     if(gcm == null){
                         gcm = GoogleCloudMessaging.getInstance(appContext);
                     }
 
@@ -157,7 +156,7 @@ public class MainActivity extends AppCompatActivity {
         params.put("regId", regId);
         //Make RESTful webservice call using AsyncHTTPClient
         AsyncHttpClient client = new AsyncHttpClient();
-        client.post(ApplicationConstants.GCM_SERVER_URL, params, new AsyncHttpResponseHandler() {
+        client.post(ApplicationConstants.PESONAL_SERVER_URL, params, new AsyncHttpResponseHandler() {
             //When the response returned by rest has HTTP error code 200
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {

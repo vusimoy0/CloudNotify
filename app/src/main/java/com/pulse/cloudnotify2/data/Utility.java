@@ -3,9 +3,6 @@ package com.pulse.cloudnotify2.data;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by Vusi on 01 Nov 2015.
- */
 public class Utility {
 
     //this class verifies information submitted by the user...

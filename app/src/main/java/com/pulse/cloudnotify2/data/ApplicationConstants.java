@@ -8,7 +8,9 @@ public interface ApplicationConstants {
 
     //SERVER URL to store registration ID - in this case it will be the php URL
 
-    String GCM_SERVER_URL= "http://192.168.1.130:9005/gcm/gcm.php?shareRegId=true";
+    String PESONAL_SERVER_URL= "http://10.112.124.234/gcm/gcm.php?shareRegId=true";
+
+    //Please put your own server url here
 
     //Google Project ID number
 

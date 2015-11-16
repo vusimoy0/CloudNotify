@@ -61,6 +61,8 @@ public class GCMNotificationIntentService  extends IntentService{
         mNotifyBuilder = new NotificationCompat.Builder (this)
                  .setContentTitle("CloudNotify")
                  .setContentText("A Notification Is Here")
+                  .setTicker("New Deals Active!!")
+                  .setSubText("Deal Alert")
                  .setSmallIcon(R.drawable.ic_launcher);
 
         //set pending intent.
@@ -83,5 +85,3 @@ public class GCMNotificationIntentService  extends IntentService{
 
     }
 }
-
-
