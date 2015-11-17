@@ -16,7 +16,7 @@ As Mentioned at the Coded in Braam session, you can also reference the followinf
 * GCM 2012: https://www.youtube.com/watch?v=YoaP6hcDctM
 
 
-The PHP serber that was used to test out GCM can be found at the following link: https://goo.gl/iofccl
+The PHP server that was used to test out GCM can be found at the following link: https://goo.gl/iofccl
 
 You can host the PHP server on your local machine by using WAMP for windows or LAMP for MAC as they provide the necessary dependencies for running the server. 
 
