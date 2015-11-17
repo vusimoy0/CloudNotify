@@ -8,7 +8,7 @@ More information on GCM can be found on the Google Developers webpage at:
 
 https://developers.google.com/cloud-messaging/
 
-As Mentioned at the Coded in Braam session, you can also reference the followinf videos on YouTube to learn more:
+As Mentioned at the Coded in Braam session, you can also reference the following videos on YouTube to learn more:
 
 * GCM 2015: https://www.youtube.com/watch?v=gJatfdattno
 * GCM 2014: https://www.youtube.com/watch?v=aJNzuxhZSxQ
