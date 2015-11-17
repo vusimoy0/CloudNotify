@@ -4,4 +4,23 @@ Demo App for Google cloud messaging.
 
 This App, together with a self-hosted server, demo how the google cloud messages notificatin work. 
 
-Information on GCM as well as this project can be found on the wiki
+More information on GCM can be found on the Google Developers webpage at:
+
+https://developers.google.com/cloud-messaging/
+
+As Mentioned at the Coded in Braam session, you can also reference the followinf videos on YouTube to learn more:
+
+GCM 2015: https://www.youtube.com/watch?v=gJatfdattno
+GCM 2014: https://www.youtube.com/watch?v=aJNzuxhZSxQ
+GCM 2013: https://www.youtube.com/watch?v=y76rjidm8cU
+GCM 2012: https://www.youtube.com/watch?v=YoaP6hcDctM
+
+The PHP serber that was used to test out GCM can be found at the following link: https://goo.gl/iofccl
+
+You can host the PHP server on your local machine by using WAMP for windows or LAMP for MAC as they provide the necessary dependencies for running the server. 
+
+Credit to the original author of the Android code and the PHP server in helping the understanding of this awesome tech!
+
+Blog: http://goo.gl/SBB6qn
+
+
