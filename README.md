@@ -1,6 +1,6 @@
 ![alt tag](https://www.drupal.org/files/project-images/gcm-logo.png)
 
-##Demo App for Google cloud messaging. 
+## Demo App for Google cloud messaging. 
 
 This App, together with a self-hosted server, show how the google cloud messages notifications work. 
 
